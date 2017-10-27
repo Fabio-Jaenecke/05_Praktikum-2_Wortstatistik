@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Zaehlt die Anzahl Vorkommnisse von Woertern ueber mehrere Zeichenketten.
  * Es lassen sich eine beliebige Anzahl an Zeichenketten uebergeben. Die
@@ -11,7 +13,15 @@
  * @author XXXX
  */
 public class Worthaeufigkeitsanalyse {
+    public String[] worte;
 
+    public Worthaeufigkeitsanalyse(){
 
-	
+    }
+
+    public void textverarbeitung(String input){
+        worte = input.replaceAll("[^a-zA-Z ],[^^ä,^ö,^ü]", "").toLowerCase().split(" ");
+    }
+   
+
 }
