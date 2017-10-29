@@ -53,7 +53,7 @@ public class Wortanalyse
             wort = wort.toLowerCase();
             wort = entferneSatzzeichen(wort);
 
-            if(wort != ""){
+            if(wort != null && !wort.isEmpty()){
                 if(wortUndHaeufigkeit.containsKey(wort)){
                     Integer zaehler = wortUndHaeufigkeit.get(wort);
                     zaehler++;
@@ -75,7 +75,7 @@ public class Wortanalyse
     public String entferneSatzzeichen(String wort){
         for(String zeichen : satzZeichen){
             if(wort.contains(zeichen)){
-                wort = wort.replaceAll(zeichen, "");
+                wort = wort.replace(zeichen, "");
             }
         }
         return wort;
@@ -91,5 +91,4 @@ public class Wortanalyse
             System.out.println(wortHaeufigkeit.getKey() + " " + wortHaeufigkeit.getValue());
         }
     }
-    
 }
