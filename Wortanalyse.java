@@ -12,7 +12,7 @@ import java.util.Set;
  * Wort werten zu koennen.
  * 
  * @version 0.1
- * @author daniel lerch
+ * @author daniel lerch, fabio jaenecke
  */
 public class Wortanalyse
 {
@@ -21,7 +21,7 @@ public class Wortanalyse
     static {
         satzZeichen.add(".");
         satzZeichen.add(",");
-        satzZeichen.add("\\?");
+        satzZeichen.add("?");
         satzZeichen.add("!");
         satzZeichen.add("\"");
         satzZeichen.add(":");
@@ -31,7 +31,7 @@ public class Wortanalyse
     private HashMap<String, Integer> wortUndHaeufigkeit = new HashMap<String, Integer>();
 
     /**
-     * textZuWort() nimmt den beim Aufruf eingegebenen String und bearbeitet ihn nach Vorgaben der Spezifikation:
+     * eingabe() nimmt den beim Aufruf eingegebenen String und bearbeitet ihn nach Vorgaben der Spezifikation:
      * - spit() bei Leerschlägen
      * - allfällige weitere Leerschläge entfernen mit trim()
      * - alles auf Kleinbuchstaben setzen mit toLowerCase()
@@ -44,8 +44,7 @@ public class Wortanalyse
      * 
      * @param  textEingabe    ein beliebiger String.
      */
-    public void textZuWort(String textEingabe)
-    {
+    public void eingabe(String textEingabe){
         String[] worte = textEingabe.split(" "); 
 
         for  (int i = 0; i < worte.length; i ++){
@@ -64,7 +63,6 @@ public class Wortanalyse
                 }
             }
         }
-
     }
 
     /**
@@ -72,7 +70,7 @@ public class Wortanalyse
      * 
      * @param  wort    ein beliebiger String.
      */
-    public String entferneSatzzeichen(String wort){
+    private String entferneSatzzeichen(String wort){
         for(String zeichen : satzZeichen){
             if(wort.contains(zeichen)){
                 wort = wort.replace(zeichen, "");
